@@ -172,6 +172,10 @@ class Syslogger
     message
   end
 
+  def current_tags
+    Thread.current[:syslogger_tagged_logging_tags] ||= []
+  end
+
   private
 
   def tags_text
@@ -181,7 +185,5 @@ class Syslogger
     end
   end
 
-  def current_tags
-    Thread.current[:syslogger_tagged_logging_tags] ||= []
-  end
+
 end
